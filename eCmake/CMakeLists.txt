@@ -1,10 +1,8 @@
 #### Compiler Settings ##############################################
-## must be at the beginning!!! will be put in build.sh
-set(CMAKE_CXX_COMPILER           "/usr/bin/clang++")
+## must be at the beginning!!!
 set(CMAKE_CXX_FLAGS              "-Wall")
 set(CMAKE_CXX_FLAGS_DEBUG        "-g")
 
-set(CMAKE_C_COMPILER             "/usr/bin/clang")
 set(CMAKE_C_FLAGS                "-Wall")
 set(CMAKE_C_FLAGS_DEBUG          "-g")
 
@@ -40,26 +38,31 @@ set(E18_BIN "${E18_PRE}/bin")
 
 set(TNAME "core_efl")
 set(TREPO "git://git.enlightenment.org/core/efl.git")
+set(TBRANCH "master")
 set(TCONFIGURE_FLAGS "--enable-systemd" "--with-systemdunitdir=${E18_PRE}/systemd_unit")
 include(autogen REQUIRED)
 
 set(TNAME "core_loaders")
 set(TREPO "git://git.enlightenment.org/core/evas_generic_loaders.git")
+set(TBRANCH "master")
 set(TCONFIGURE_FLAGS "")
 include(autogen REQUIRED)
 
 set(TNAME "core_players")
 set(TREPO "git://git.enlightenment.org/core/emotion_generic_players.git")
+set(TBRANCH "master")
 set(TCONFIGURE_FLAGS "")
 include(autogen REQUIRED)
 
 set(TNAME "core_elementary")
 set(TREPO "git://git.enlightenment.org/core/elementary.git")
+set(TBRANCH "master")
 set(TCONFIGURE_FLAGS "")
 include(autogen REQUIRED)
 
 set(TNAME "core_enlightenment")
 set(TREPO "git://git.enlightenment.org/core/enlightenment.git")
+set(TBRANCH "master")
 set(TCONFIGURE_FLAGS "--enable-systemd" "--disable-pulseaudio"  "--with-systemdunitdir=${E18_PRE}/systemd_unit")
 include(autogen REQUIRED)
 

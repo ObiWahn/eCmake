@@ -1,4 +1,4 @@
-set(TNAME @TNAME@)
+#set(TNAME "package")
 
 cmake_minimum_required(VERSION 2.8.11)
 project(${TNAME})
@@ -17,15 +17,15 @@ ExternalProject_Add(${TNAME}
     SOURCE_DIR        "${TSOURCE}"
     BUILD_IN_SOURCE   0
 
-    GIT_REPOSITORY    @TREPO@
-    GIT_TAG           master
+    GIT_REPOSITORY    ${TREPO}
+    GIT_TAG           ${TBRANCH}
 
     UPDATE_COMMAND    git clean -f
     UPDATE_COMMAND    git pull
 
-    CONFIGURE_COMMAND "${TSOURCE}/configure" "--prefix=${E18_PRE}" @TCONFIGURE_FLAGS@
+    CONFIGURE_COMMAND "${TSOURCE}/configure" "--prefix=${E18_PRE}" ${TCONFIGURE_FLAGS}
 
-    BUILD_COMMAND     "make" "-j6"
+    BUILD_COMMAND     "make"
     INSTALL_COMMAND   "make" "install"
 )
 

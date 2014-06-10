@@ -29,11 +29,14 @@ export NOCONFIGURE="true"
 echo "NOCONFIGURE=$NOCONFIGURE"
 export V
 echo "V=$V"
+export VERBOSE=$V
 echo
-
 
 mkdir -p ./build
 cd build
-cmake ../eCmake
+
+cmake -DCMAKE_CXX_COMPILER=/usr/bin/clang++ \
+      -DCMAKE_C_COMPILER=/usr/bin/clang \
+      ../eCmake
 
 make -j 1
