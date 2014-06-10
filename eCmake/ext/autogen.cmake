@@ -20,18 +20,19 @@ ExternalProject_Add(${TNAME}
     GIT_REPOSITORY    ${TREPO}
     GIT_TAG           ${TBRANCH}
 
-    UPDATE_COMMAND    git clean -f
-    UPDATE_COMMAND    git pull
+    UPDATE_COMMAND    cd "${TSOURCE}"
+    COMMAND           git clean -f
+    COMMAND           git pull
 
     CONFIGURE_COMMAND "${TSOURCE}/configure" "--prefix=${E18_PRE}" ${TCONFIGURE_FLAGS}
 
-    BUILD_COMMAND     "make"
+    BUILD_COMMAND     "make" "-j6"
     INSTALL_COMMAND   "make" "install"
 )
 
 ExternalProject_Add_Step(${TNAME} autogen
   COMMAND "${TSOURCE}/autogen.sh"
-  DEPENDEES download
+  DEPENDEES download update
   DEPENDERS configure
   WORKING_DIRECTORY "${TSOURCE}"
 )
