@@ -1,0 +1,7 @@
+Deps:
+libluajit-dev
+libgstreamer-10
+libbullet-dev
+libsystystemd-*-dev
+libwayland-dev
+libvlc-dev
